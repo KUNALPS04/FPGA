@@ -17,7 +17,7 @@
 // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
 // CREATED		"Wed Sep 16 17:32:14 2026"
 
-module t1a_fs_pwm_bdf(
+module fs_pwm_bdf(
 	reset_n,
 	clk_50MHz,
 	pulse_width,
