@@ -1,12 +1,7 @@
-\# FS\_PWM
 
+A Verilog HDL project implementing **Frequency Scaling** and **Pulse Width Modulation (PWM)** using Quartus Prime and ModelSim.
 
-
-A Verilog HDL project implementing \*\*Frequency Scaling\*\* and \*\*Pulse Width Modulation (PWM)\*\* using Quartus Prime and ModelSim.
-
-
-
-\## Overview
+## Overview
 
 
 
@@ -14,128 +9,116 @@ This project demonstrates how a high-frequency FPGA board (Cyclone IV E EP4CE22F
 
 
 
-\### Frequency Scaling
+### Frequency Scaling
 
 
 
-The `frequency\_scaling` module divides the FPGA board's \*\*50 MHz\*\* system clock down to \*\*5 MHz\*\* using a counter-based clock divider.
+The `frequency_scaling` module divides the FPGA board's **50 MHz** system clock down to **5 MHz** using a counter-based clock divider.
 
 
 
-\### Pulse Width Modulation (PWM)
+### Pulse Width Modulation (PWM)
 
 
 
-The `pwm\_generator` module operates on the scaled \*\*5 MHz\*\* clock and generates:
+The `pwm_generator` module operates on the scaled **5 MHz** clock and generates:
 
 
 
-\- A \*\*500 Hz clock\*\*
+- A **500 Hz clock**
 
-\- A \*\*PWM output signal\*\*
-
-
-
-The PWM signal is generated using the \*\*counter-and-compare\*\* technique, where the output remains high for a configurable portion of each cycle. PWM is commonly used to control the average power delivered to devices such as motors, LEDs, and power converters without dissipating excess energy as heat.
+- A **PWM output signal**
 
 
 
-\---
+The PWM signal is generated using the **counter-and-compare** technique, where the output remains high for a configurable portion of each cycle. PWM is commonly used to control the average power delivered to devices such as motors, LEDs, and power converters without dissipating excess energy as heat.
 
 
 
-\## Project Structure
+---
+
+
+
+## Project Structure
 
 
 
 ```text
 
-fs\_pwm/
-
+fs_pwm/
 ├── .test
-
 ├── code
-
 ├── images
-
 ├── fs\_pwm.qpf
-
 ├── fs\_pwm.qsf
-
 ├── README.md
-
 └── .gitignore
 
 ```
 
 
 
-\---
+---
 
 
 
-\## Modules
+## Modules
 
 
 
-\### frequency\_scaling
+### 1.frequency_scaling
 
 
 
-\*\*Input:\*\*
+**Input:**
 
-\- `clk\_50MHz`
-
-\- `reset\_n`
-
-
-
-\*\*Output:\*\*
-
-\- `clk\_5MHz`
+- `clk_50MHz`
+- `reset_n`
 
 
 
-\*\*Function:\*\*
+**Output:**
 
-\- Divides the 50 MHz board clock to generate a 5 MHz clock signal.
-
-
-
-\### pwm\_generator
+- `clk_5MHz`
 
 
 
-\*\*Input:\*\*
+**Function:**
 
-\- `clk\_5MHz`
-
-\- `reset\_n`
-
-\- `pulse\_width\[4:0]`
+- Divides the 50 MHz board clock to generate a 5 MHz clock signal.
 
 
 
-\*\*Output:\*\*
-
-\- `clk\_500Hz`
-
-\- `pwm\_signal`
+### 2.pwm_generator
 
 
 
-\*\*Function:\*\*
+**Input:**
 
-\- Generates a 500 Hz clock from the 5 MHz input clock.
-
-\- Produces a PWM signal whose duty cycle is controlled by `pulse\_width`.
-
-
-
-\---
+- `clk_5MHz`
+- `reset_n`
+- `pulse_width[4:0]`
 
 
-\## Block Diagram
+
+**Output:**
+
+- `clk_500Hz`
+- `pwm_signal`
+
+
+
+**Function:**
+
+- Generates a 500 Hz clock from the 5 MHz input clock.
+- Produces a PWM signal whose duty cycle is controlled by `pulse_width`.
+
+
+
+---
+
+
+## Block Diagram
 
 ![Block Diagram](images/fs_pwm_Top-level-block-diagram-connections.png)
 
@@ -143,47 +126,38 @@ fs\_pwm/
 
 ![PWM Waveform](images/fs_pwm_waveform.png)
 
-\---
+---
 
-\## Tools Used
-
-
-
-\- Quartus Prime Lite Edition
-
-\- ModelSim Intel FPGA Edition
-
-\- Verilog HDL
+## Tools Used
 
 
 
-\---
+- Quartus Prime Lite Edition
+- ModelSim Intel FPGA Edition
+- Verilog HDL
 
 
 
-\## Applications
+---
 
 
 
-\- Motor speed control
-
-\- LED brightness control
-
-\- Power regulation
-
-\- FPGA clock management
-
-\- Embedded control systems
+## Applications
 
 
 
-\---
+- Motor speed control
+- LED brightness control
+- Power regulation
+- FPGA clock management
+- Embedded control systems
 
 
 
-\## Author
+---
 
 
 
-Kunal Patil
+## Author
+[Kunal Patil](https://github.com/KUNALPS04)
 
