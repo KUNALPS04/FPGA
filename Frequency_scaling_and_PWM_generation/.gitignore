@@ -1,0 +1,23 @@
+# Quartus
+db/
+incremental_db/
+greybox_tmp/
+
+# Output files
+output_files/
+
+# ModelSim
+work/
+transcript
+vsim.wlf
+
+# Logs
+*.log
+
+# Reports
+*.rpt
+*.summary
+
+# Temporary
+*.bak
+*.tmp
