@@ -1,20 +1,31 @@
-// Logic Quest Bot : Task 1A : PWM Generator
-/*
-Instructions
--------------------
-Students are not allowed to make any changes in the Module declaration.
-This file is used to design a module which will scale down the clk_5MHz Clock Frequency to 500Hz and perform Pulse Width Modulation on it.
-
-Recommended Quartus Version : 20.1
-The submitted project file must be 20.1 compatible as the evaluation will be done on Quartus Prime Lite 20.1.
-
-Warning: The error due to compatibility will not be entertained.
--------------------
-*/
-
-//PWM Generator
-//Inputs : clk_5MHz, pulse_width
-//Output : clk_500Hz, pwm_signal
+/******************************************************************************
+ * Module Name  : pwm_generator
+ * Author       : Kunal Patil
+ * Date Created : 24-Sep-2026
+ *
+ * Description  :
+ * This module generates a 500 Hz clock and a Pulse Width Modulation (PWM)
+ * signal using the scaled 5 MHz clock as its input. The PWM duty cycle is
+ * controlled by the pulse_width input using a counter-and-compare method.
+ *
+ * Inputs:
+ *   clk_5MHz     - Scaled 5 MHz clock
+ *   reset_n      - Active-low reset
+ *   pulse_width  - 5-bit duty cycle control input
+ *
+ * Outputs:
+ *   clk_500Hz    - Generated 500 Hz clock
+ *   pwm_signal   - PWM output signal
+ *
+ * Functionality:
+ *   - Divides the 5 MHz clock to generate a 500 Hz timing reference.
+ *   - Generates a PWM waveform with configurable duty cycle.
+ *   - Uses counter-based PWM generation.
+ *   - Supports asynchronous active-low reset.
+ *
+ * Target Tool  : Quartus Prime Lite 20.1
+ * Language     : Verilog HDL
+ ******************************************************************************/
 
 module pwm_generator(
     input clk_5MHz,
