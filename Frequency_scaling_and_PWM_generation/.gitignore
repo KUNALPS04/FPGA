@@ -21,3 +21,4 @@ vsim.wlf
 # Temporary
 *.bak
 *.tmp
+*.qws
