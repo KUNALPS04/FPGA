@@ -1,30 +1,37 @@
-// Logic Quest Bot : Task 1A : Frequency Scaling
-/*
-Instructions
--------------------
-Students are not allowed to make any changes in the Module declaration.
-This file is used to design a module which will scale down the 50MHz Clock Frequency to clk_5MHz
-
-Recommended Quartus Version : 20.1
-The submitted project file must be 20.1 compatible as the evaluation will be done on Quartus Prime Lite 20.1.
-
-Warning: The error due to compatibility will not be entertained.
--------------------
-*/
-
-//Frequency Scaling
-//Inputs : clk_50MHz
-//Output : 5MHz
-
+/******************************************************************************
+ * Module Name  : frequency_scaling
+ * File Name    : frequency_scaling.v
+ *
+ * By       : Kunal Patil
+ * Date Created : 24-Sep-2026
+ *
+ * Description  :
+ * This module performs clock frequency scaling by dividing the FPGA board's
+ * 50 MHz system clock down to a 5 MHz clock using a counter-based clock
+ * divider. The generated 5 MHz clock is used as the input clock for the
+ * PWM generation module.
+ *
+ * Inputs:
+ *   clk_50MHz  - 50 MHz system clock
+ *   reset_n    - Active-low reset
+ *
+ * Outputs:
+ *   clk_5MHz   - Scaled 5 MHz clock
+ *
+ * Functionality:
+ *   - Divides the incoming 50 MHz clock by 10.
+ *   - Generates a stable 5 MHz clock for downstream modules.
+ *   - Supports asynchronous active-low reset.
+ *
+ * Target Tool  : Quartus Prime Lite 20.1
+ * Language     : Verilog HDL
+ ******************************************************************************/
 
 module frequency_scaling (
     input clk_50MHz,
     input reset_n,
     output reg clk_5MHz
 );
-
-//////////////////DO NOT MAKE ANY CHANGES ABOVE THIS LINE //////////////////
-
 
 reg [2:0] count;
 
@@ -45,7 +52,7 @@ always @(posedge clk_50MHz or negedge reset_n) begin
             clk_5MHz <= ~clk_5MHz;
     end
 end
-//////////////////DO NOT MAKE ANY CHANGES BELOW THIS LINE //////////////////
+
 
 endmodule
 
